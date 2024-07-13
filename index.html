@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator Project</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.8/sweetalert2.all.js"></script>
+    
+    
+    <!-- <link rel="stylesheet" href="age-calculator.css"> -->
+</head>
+<style>
+    *{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.age-container {
+    border-radius: 10px;
+    padding: 20px;
+    width: 600px;
+    height: 350px;
+    text-align: center;
+    box-shadow: 0 0 10px 0 black;
+    background-color: rgb(223, 170, 180);
+}
+
+.age-header {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 20px;
+    /* margin-top: ; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* display: block; */
+
+    margin-right: 70px;
+}
+
+.age-dob-input {
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    padding: 10px;
+    margin-bottom: 50px;
+    border: none;
+}
+
+.calculate-btn {
+    font-size: 1.2rem;
+    width: 200px;
+    height: 40px;
+    background-color:crimson;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+b{
+    font-size: 20px;
+  
+}
+#spn
+{
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 31, 133);
+
+   
+}
+</style>
+<body>
+
+    <div class="age-container">
+        <div class="age-header">
+            Age Calculator
+        </div>
+        <div class="age-input">
+            <br>
+            <label>
+                * Select your Birth Date : 
+            </label>
+            <input type="date" class="age-dob-input">
+        </div>
+
+        <div class="age-button">
+            <span id="sp"></span>
+            <br>
+            <button class="calculate-btn">
+                Calculate Age
+            </button>
+        </div>
+
+        <div >
+            <br>
+            <b class="age-result">Your Age Is   : </b> 
+        </div>
+        
+    </div>
+
+    </script>
+</body>
+</html>
+<script>
+
+const inputbtn = document.querySelector(".age-dob-input");
+const calculatebtn = document.querySelector(".calculate-btn");
+const ageresult = document.querySelector(".age-result");
+
+calculatebtn.addEventListener("click", () => {
+    if(inputbtn.value === ""){
+    
+        // let sp = document.getElementById('sp')
+        // sp.innerText=" * Please Enter Your Date Of Birth *";
+        // sp.id="spn";
+        // console.log(sp)
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: " Please Enter Your Date Of Birth !!!",
+          
+    });
+
+        
+    }else {
+        console.log("input",inputbtn.value);
+        const dob = new Date(inputbtn.value);
+        console.log("dob",dob);
+        const dob_year = dob.getFullYear();
+        console.log("dob_year",dob_year);
+
+        // current
+        const now = new Date();
+        console.log("now",now);
+        const now_year = now.getFullYear();
+        console.log("now_year",now_year);
+        const age = now_year - dob_year;
+        console.log("age",age);
+        
+        ageresult.innerHTML = `Your Age Is : ${age}`;
+
+        
+    }
+});
+
+</script>
+<!-- https://www.coursera.org/professional-certificates/google-it-automation?action=enroll&irclickid=RMa3-nzHTxyPUGeXXGVLi1brUkHQnp0VOQa3z00&irgwc=1&utm_campaign=2550473&utm_content=b2c&utm_medium=partners&utm_source=impact -->
+
+<!-- https://github.com/arbazkhan971/html-css-javascript-projects -->
